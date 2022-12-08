@@ -9,5 +9,32 @@
 \usepackage{float}
 
 \begin{document}
+    \section{Introducción}
+    
+    Desde el comienzo de la humanidad el hombre se ha enfrentado a fenómenos de la naturaleza, causados por la propia actividad humana o muchas veces sin explicación de su origen desde el punto de vista científico. Uno de estos fenómenos son las epidemias, las cuales se caracterizan por ser grandes enfermedades sobre las cuales muchas veces no se tiene absoluto control sobre el tratamiento y eliminación de la transición. De ahí que el ser humano busque y estudie estrategias para emplear en este tipo de situaciones.
+    
+    Una de estas estrategias recurre a la matemática como herramienta para tratar de modelar el problema y predecir la evolución del mismo, específicamente la epidemiología matemática modela la propagación de enfermedades infecciosas en una comunidad y su objetivo es entender los mecanismos que hacen posible que se lleve a cabo dicha propagación. Pero esta modelación epidemiológica suele ser bastante compleja, porque tiene que modelar varios factores dentro de la comunidad que pueden influir en la epidemia, tal es el caso de los factores geográficos, sociales, culturales, económicos o políticos.
+    
+    El \textbf{SIR} (Susceptibles-Infectados-Recuperados) es modelo matemático que divide a la población en clases epidemiológicas: las personas susceptibles a la enfermedad \textbf{S}, la cantidad de personas infectadas \textbf{I} y la cantidad de personas recuperadas \textbf{R} en un determinado momento. También debemos introducir otro parámetro \textbf{N} que es la cantidad de individuos de la población en un momento dado, de manera que: $N(t)=S(t)+I(t)+R(t)$. Este modelo además describe las relaciones que se establecen entre cada uno de estos grupos, las cuales se pueden ilustrar mediante el siguiente sistema de ecuaciones diferenciales:
+       
+    \begin{equation}
+    		{d\over dt}S(t)=-\beta S(t)I(t)
+    \end{equation}
+    
+    \begin{equation}
+    		{d\over dt}I(t)=\beta S(t)I(t)-\gamma I(t)
+    \end{equation}
+    
+    \begin{equation}
+   		{d\over dt}R(t)=\gamma I(t) 
+    \end{equation}
+donde $\beta$ y $\gamma$ miden la tasa de infección y recuperación respectivamente, para una determinada enfermedad. 
+
+En la ecuación (1) podemos observar que ${d\over dt}S(t)$ siempre es pun valor negativo por lo que la cantidad de susceptibles siempre irá en decremento, mientras que en la ecuación (3) se observa que ${d\over dt}R(t)$ siempre es un parámetro negativo lo que implica que la cantidad de recuperados siempre está en aumento. Estas dos observaciones son cuestiones que vienen dadas por la propia naturaleza del fenómeno al inicio de la epidemia al inicio de la misma la cantidad de susceptibles es $N$ y dicha cantidad va disminuyendo a medida que se van infectando los individuos, por el contrario, al inicio de la enfermedad la cantidad de recuperados es 0 y dicha cantidad va aumentando a medida que las personas infectadas comienzan a recuperarse.
+
+Esta modelación descrita anteriormente desde un punto de vista general es
+adaptada a la epidemia en que se aplique y los parámetros, así como las relaciones descritas por las ecuaciones (1), (2) y (3) pueden variar en dependencia de las características y peculiaridades propias de la epidemia.    
+
+    
     
 \end{document}

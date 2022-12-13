@@ -155,6 +155,75 @@ Al modelar las ecuaciones $(4)$, $(5)$ y $(6)$ con el c\'odigo del Anexo 1 (m\'e
 
 Podemos obvervar un comportamiento inusual ya que se  reduce la cantidad de recuperados con el paso del tiempo. Esto se puede deber a un error en el art\'iculo, en nuestra interpretaci\'on de este, o en la selecci\'on de los par\'ametros. Los par\'ametros usados fueron los mismos que en el cuadro \ref{tab:r_0_comparison}, adem\'as de los valores $\rho=0.6$, $a=0.2$, $b=0.4$, $\gamma=0.003$, y las condiciones iniciales $S(0)=600$, $I(0)=400$, $R(0)=0$.
 
+\section{Puntos de Equilibrio, Diagrama de Fase y Estabilidad del sistema}
+
+Para analizar la estabilidad del sistema necesitamos reducir nuestro modelo, ya que este cuenta con 3 ecuaciones. 
+
+Para ello tenermos que: ${dN\over dt}=\alpha-\beta N$, de donde el único punto de equilibrio es $\alpha-\beta N=0\Rightarrow N(t)={\alpha\over\beta}\Rightarrow S+R+I={\alpha\over\beta}$. De este razonamiento y de nuestro sistema \textbf{SIR} obtenemos el siguiente sistema reducido:
+
+\begin{equation}
+	{dI\over dt}={kI\rho (1+aI)\over 1+bI^2}\Big({\alpha\over\beta}-I-R\Big)-(\beta+\mu)I
+\end{equation}
+
+\begin{equation}
+	{dR\over dt}=\mu I-(\beta+\gamma)R+{kI(1+aI)(1-\rho)\over 1+bI^2}\Big({\alpha\over\beta}-I-R\Big)
+\end{equation}
+
+Ahora tratemos de buscar un sistema equivalente m\'as c\'omodo para realizar el an\'alisis de estabilidad, para ello sea $x={k\over \beta +\gamma}I$, $y={k\over \beta +\gamma}R$ y $\tau (\beta+\gamma)t$, donde $A={\alpha k\over \beta(\beta+\gamma}$, $p={a(\beta+\gamma)\over k}$, $q={b(\beta+\gamma)^2\over k^2}$, $B=\rho$, $m={\beta+\mu\over \beta+\gamma}$ y $r={\mu\over \beta+\gamma}$, entonces:
+
+\begin{equation}
+	{dx\over d\tau}={x(1+px)B\over 1+qx^2}(A-x-y)-mx
+\end{equation}
+
+\begin{equation}
+	{dy\over d\tau}=rx-y+{1+px\over 1+qx^2}(1-B)x(A-x-y)
+\end{equation}
+
+Ahora analicemos el siguiente diagrama de fase que describe el sistema anterior:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./images/Figure_2.png}
+    \caption{Diagrama de Fase}
+    \label{fig:model_graph}
+\end{figure}
+
+Aqu\'i podemos observar que existe un \'unico punto de equilibrio en el sistema el punto (0,0). El cual se alcanza con las siguientes soluciones: $$x^*={By\over m+B(r-m)}$$ $$y^*={(m+B(r-m)x^*\over B}$$
+
+Analicemos la matriz Jacobiana del sistema formado por las ecuaciones (13) y (14):
+
+\begin{equation}
+	M=\left(
+	\begin{matrix}
+		 BD-m & -{B(1+px)x\over 1+qx^2}\\
+		 r+(1-B)C & -1-{(1-B)(1+px)x\over 1+qx^2}
+	\end{matrix}
+	\right)
+\end{equation}
+
+Ahora si se cumple que:
+
+\begin{equation}
+m+{m(1-B(1+px)x\over 1+qx^2}+{rB(1+px)x\over 1+qx^2}>BD
+\end{equation}
+
+entonces tenemos que ($x^*$,$y^*$) es un nodo o un foco o un centro del sistema.
+
+\begin{equation}
+	tr(M)=BD-m-1-{(1-B)(1+px)x\over 1+qx^2}
+\end{equation}
+
+Si $m+1+{(1-B)(1+px)x\over 1+qx^2}>BD$ entonces $tr(M)<0$, donde:
+$$D={(1+qx^2)(A-x-y)(1+2px)-(x+px^2)(1+qx^2+(A-x-y)2px))\over 1+qx^2}$$
+
+Por tanto las condiciones de las ecuaciones (16) y (17) son satisfacidas, luego existe un \'unico punto de equilibrio en el sistema, (0,0), el cual podemos decir que es estable. 
+
+
+
+
+	
+
+
 \section{Anexos}
 
 \subsection*{Anexo 1: Graficado del sistema de EDO del modelo SIR}

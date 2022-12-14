@@ -30,14 +30,31 @@
   tabsize=3
 }
 
+\title{Informe de la Tarea Investigativa II, presentado por los estudiantes del equipo No.-27}
+\author{Raudel Alejandro G\'omez Molina - 211 \\ Fernando Vald\'es Garc\'ia - 212}
+\date{}
+
 \begin{document}
+
+    \maketitle
+
+    \begin{center}
+        
+        \LARGE{\textbf{Stability analysis of an SIR model with immunity and modified transmission function}} \par \bigskip
+        \normalsize
+        \Large{\textbf{Nidhi Nirwani, V.H.Badshah, R.Khandelwal}}  \\ \bigskip
+        \textbf{International Journal of Applied Mathematical Research, 2015}
+    \end{center}
+
+    \pagebreak
+
     \section{Introducción}
     
     Desde el comienzo de la humanidad el hombre se ha enfrentado a fenómenos de la naturaleza, causados por la propia actividad humana o muchas veces sin explicación de su origen desde el punto de vista científico. Uno de estos fenómenos son las epidemias, las cuales se caracterizan por ser grandes enfermedades sobre las cuales muchas veces no se tiene absoluto control sobre el tratamiento y eliminación de la transición. De ahí que el ser humano busque y estudie estrategias para emplear en este tipo de situaciones.
     
     Una de estas estrategias recurre a la matemática como herramienta para tratar de modelar el problema y predecir la evolución del mismo, específicamente la epidemiología matemática modela la propagación de enfermedades infecciosas en una comunidad y su objetivo es entender los mecanismos que hacen posible que se lleve a cabo dicha propagación. Pero esta modelación epidemiológica suele ser bastante compleja, porque tiene que modelar varios factores dentro de la comunidad que pueden influir en la epidemia, tal es el caso de los factores geográficos, sociales, culturales, económicos o políticos.
     
-    El \textbf{SIR} (Susceptibles-Infectados-Recuperados) es modelo matemático que divide a la población en clases epidemiológicas: las personas susceptibles a la enfermedad \textbf{S}, la cantidad de personas infectadas \textbf{I} y la cantidad de personas recuperadas \textbf{R} en un determinado momento. También debemos introducir otro parámetro \textbf{N} que es la cantidad de individuos de la población en un momento dado, de manera que: $N(t)=S(t)+I(t)+R(t)$. Este modelo además describe las relaciones que se establecen entre cada uno de estos grupos, las cuales se pueden ilustrar mediante el siguiente sistema de ecuaciones diferenciales:
+    El \textbf{SIR} (Susceptibles-Infectados-Recuperados) es un modelo matemático que divide a la población en clases epidemiológicas: las personas susceptibles a la enfermedad \textbf{S}, la cantidad de personas infectadas \textbf{I} y la cantidad de personas recuperadas \textbf{R} en un determinado momento. También debemos introducir otro parámetro \textbf{N} que es la cantidad de individuos de la población en un momento dado, de manera que: $N(t)=S(t)+I(t)+R(t)$. Este modelo además describe las relaciones que se establecen entre cada uno de estos grupos, las cuales se pueden ilustrar mediante el siguiente sistema de ecuaciones diferenciales:
        
     \begin{equation}
     		\dfrac{d}{dt}S(t)=-\beta S(t)I(t)
@@ -52,7 +69,7 @@
     \end{equation}
 donde $\beta$ y $\gamma$ miden la tasa de infección y recuperación respectivamente, para una determinada enfermedad. 
 
-En la ecuación (1) podemos observar que $\dfrac{d}{dt}S(t)$ siempre es un valor negativo por lo que la cantidad de susceptibles siempre irá en decremento, mientras que en la ecuación (3) se observa que $\dfrac{d}{dt}R(t)$ siempre es un parámetro positivo lo que implica que la cantidad de recuperados siempre está en aumento. Estas dos observaciones son cuestiones que vienen dadas por la propia naturaleza del fenómeno al inicio de la epidemia al inicio de la misma la cantidad de susceptibles es $N$ y dicha cantidad va disminuyendo a medida que se van infectando los individuos, por el contrario, al inicio de la enfermedad la cantidad de recuperados es 0 y dicha cantidad va aumentando a medida que las personas infectadas comienzan a recuperarse.
+En la ecuación (1) podemos observar que $\dfrac{d}{dt}S(t)$ siempre es un valor negativo por lo que la cantidad de susceptibles siempre irá en decremento, mientras que en la ecuación (3) se observa que $\dfrac{d}{dt}R(t)$ siempre es un parámetro positivo lo que implica que la cantidad de recuperados siempre está en aumento. Estas dos observaciones son cuestiones que vienen dadas por la propia naturaleza del fenómeno. Al inicio de la epidemia la cantidad de susceptibles es $N$ y dicha cantidad va disminuyendo a medida que se van infectando los individuos. Por el contrario, al inicio de la enfermedad la cantidad de recuperados es 0 y dicha cantidad va aumentando a medida que las personas infectadas comienzan a recuperarse.
 
 Esta modelación descrita anteriormente desde un punto de vista general es
 adaptada a la epidemia en que se aplique y los parámetros, así como las relaciones descritas por las ecuaciones (1), (2) y (3) pueden variar en dependencia de las características y peculiaridades propias de la epidemia.    
@@ -159,7 +176,7 @@ Podemos obvervar un comportamiento inusual ya que se  reduce la cantidad de recu
 
 Para analizar la estabilidad del sistema necesitamos reducir nuestro modelo, ya que este cuenta con 3 ecuaciones. 
 
-Para ello tenermos que: ${dN\over dt}=\alpha-\beta N$, de donde el único punto de equilibrio es $\alpha-\beta N=0\Rightarrow N(t)={\alpha\over\beta}\Rightarrow S+R+I={\alpha\over\beta}$. De este razonamiento y de nuestro sistema \textbf{SIR} obtenemos el siguiente sistema reducido:
+Para ello tenemos que: ${dN\over dt}=\alpha-\beta N$, de donde el único punto de equilibrio es $\alpha-\beta N=0\Rightarrow N(t)={\alpha\over\beta}\Rightarrow S+R+I={\alpha\over\beta}$. De este razonamiento y de nuestro sistema \textbf{SIR} obtenemos el siguiente sistema reducido:
 
 \begin{equation}
 	{dI\over dt}={kI\rho (1+aI)\over 1+bI^2}\Big({\alpha\over\beta}-I-R\Big)-(\beta+\mu)I
@@ -169,7 +186,7 @@ Para ello tenermos que: ${dN\over dt}=\alpha-\beta N$, de donde el único punto 
 	{dR\over dt}=\mu I-(\beta+\gamma)R+{kI(1+aI)(1-\rho)\over 1+bI^2}\Big({\alpha\over\beta}-I-R\Big)
 \end{equation}
 
-Ahora tratemos de buscar un sistema equivalente m\'as c\'omodo para realizar el an\'alisis de estabilidad, para ello sea $x={k\over \beta +\gamma}I$, $y={k\over \beta +\gamma}R$ y $\tau (\beta+\gamma)t$, donde $A={\alpha k\over \beta(\beta+\gamma}$, $p={a(\beta+\gamma)\over k}$, $q={b(\beta+\gamma)^2\over k^2}$, $B=\rho$, $m={\beta+\mu\over \beta+\gamma}$ y $r={\mu\over \beta+\gamma}$, entonces:
+Ahora tratemos de buscar un sistema equivalente m\'as c\'omodo para realizar el an\'alisis de estabilidad, para ello sea $x={k\over \beta +\gamma}I$, $y={k\over \beta +\gamma}R$ y $\tau = (\beta+\gamma)t$, donde $A={\alpha k\over \beta(\beta+\gamma)}$, $p={a(\beta+\gamma)\over k}$, $q={b(\beta+\gamma)^2\over k^2}$, $B=\rho$, $m={\beta+\mu\over \beta+\gamma}$ y $r={\mu\over \beta+\gamma}$, entonces:
 
 \begin{equation}
 	{dx\over d\tau}={x(1+px)B\over 1+qx^2}(A-x-y)-mx
@@ -185,12 +202,12 @@ Ahora analicemos el siguiente diagrama de fase que describe el sistema anterior:
     \centering
     \includegraphics[width=1\textwidth]{./images/Figure_2.png}
     \caption{Diagrama de Fase}
-    \label{fig:model_graph}
+    \label{fig:phase_diagram}
 \end{figure}
 
-Aqu\'i podemos observar que existe un \'unico punto de equilibrio en el sistema el punto (0,0). El cual se alcanza con las siguientes soluciones: $$x^*={By\over m+B(r-m)}$$ $$y^*={(m+B(r-m)x^*\over B}$$
+Aqu\'i podemos observar que existe un \'unico punto de equilibrio en el sistema en el punto (0,0). El cual se alcanza con las siguientes soluciones: $$x^*={By\over m+B(r-m)}$$ $$y^*={(m+B(r-m)x^*\over B}$$
 
-Analicemos la matriz Jacobiana del sistema formado por las ecuaciones (13) y (14):
+Analicemos la matriz Jacobiana del sistema formado por las ecuaciones (13) y (14), teniendo en cuenta que $D = \dfrac{(1+bI^2)}{(1+aI)\rho kI}$:
 
 \begin{equation}
 	M=\left(
@@ -217,12 +234,12 @@ Si $m+1+{(1-B)(1+px)x\over 1+qx^2}>BD$ entonces $tr(M)<0$, donde:
 $$D={(1+qx^2)(A-x-y)(1+2px)-(x+px^2)(1+qx^2+(A-x-y)2px))\over 1+qx^2}$$
 
 Por tanto las condiciones de las ecuaciones (16) y (17) son satisfacidas, luego existe un \'unico punto de equilibrio en el sistema, (0,0), el cual podemos decir que es estable. 
-
-
-
-
 	
+\section{Conclusiones}
 
+Durante el desarrollo de este trabajo pudimos adquirir conocimientos sobre el funcionamiento del modelo SIR, el cual resulta ser muy empleado en la modelaci\'on de la propagación de enfermedades infecciosas. Adem\'as descubrimos herramientas \'utiles para determinar los puntos de equilibrio de un sistema de ecuaciones diferenciales, y como estos puntos afectan el comportamiento del sistema. Tambi\'en aprendimos sobre la  metodolog\'ia que se emplea para analizar la estabilidad del sistema en dichos puntos mediante la experimentaci\'on con esta. \par
+Creemos habernos topado con algunos errores en el art\'iculo estudiado. El primer ejemplo de esto fue la discrepancia entre los valores de $R_0$ para diferentes valores de $\rho$ entre el art\'iculo y nuestra experimentaci\'on. Tambi\'en debemos hacer notar el comportamiento inusual del valor $R$, pues como podemos ver en la figura \ref{fig:model_graph}, a partir de cierto punto la cantidad de recuperados se reduce, cosa que no deber\'ia suceder en un modelo SIR. Intentamos modificar las constantes del modelo para ver si esto se solucionaba, pero no tuvimos \'exito. \par
+Teniendo en cuenta lo anterior creemos conveniente recomendar una revisi\'on m\'as exhaustiva del modelo propuesto en el art\'iculo, para ver si se puede corregir el error que se presenta en el mismo. \par
 
 \section{Anexos}
 
